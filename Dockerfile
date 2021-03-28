@@ -1,5 +1,5 @@
 FROM maven:3.6.3-openjdk-15
 EXPOSE 9191
-RUN mvn /home/pexaks/auth-service/authentication-server/pom.xml clean package
+RUN mvn /home/pexaks/auth-service/authentication-server/. clean package
 COPY target/authorization-server-0.0.1.jar auth-server.jar
 ENTRYPOINT ["java","-jar","/auth-server.jar"]
