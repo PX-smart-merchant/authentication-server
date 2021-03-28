@@ -1,5 +1,5 @@
-FROM maven:3.6.3-openjdk-15
+FROM maven:3.6.3-openjdk-15 AS build
 EXPOSE 9191
-RUN mvn /home/pexaks/auth-service/authentication-server/. clean package
-COPY target/authorization-server-0.0.1.jar auth-server.jar
-ENTRYPOINT ["java","-jar","/auth-server.jar"]
+COPY ./ ./
+RUN mvn clean package
+CMD ["java","-jar","target/authorization-server-0.0.1.jar"]
